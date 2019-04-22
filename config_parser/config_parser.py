@@ -9,7 +9,8 @@ class ConfigParser:
         return cls._instance
         
     def __init__(self):
-        self.parser = configparser.ConfigParser(open("../config.txt"))
+        self.parser = configparser.ConfigParser()
     
     def get_destination(self):
+        self.parser.read("config.txt")
         return self.parser["destination"]["destination_folder"]
